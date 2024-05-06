@@ -1,0 +1,54 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  background-color: #222; /* Adjusted background color to a darker shade of gray */
+  color: #ddd; /* Adjusted text color to a lighter shade of gray */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.board-row {
+  display: flex;
+}
+
+.square {
+  font-size: 40px;
+  width: 100px;
+  height: 100px;
+  margin: 1px;
+  border: 1px solid #666; /* Adjusted border color to a lighter shade of gray */
+  background-color: white; /* Navy blue background color */
+  cursor: pointer;
+}
+
+.square:hover {
+  background-color: ghostwhite; /* Adjusted hover background color to a darker shade of gray */
+}
+
+.status {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.level {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+select {
+  padding: 2px;
+  font-size: 16px;
+}
