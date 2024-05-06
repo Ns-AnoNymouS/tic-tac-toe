@@ -46,9 +46,7 @@ function Board({ status, squares, setSquares, difficulty, setDifficulty, xturn, 
             setxTurn(!xturn)
             let newSquares = Array(9).fill(null)
             if (xturn) {
-                // eslint-disable-next-line no-unused-vars
-                let [_, move] = minmax(newSquares, 'O', choose(probability[difficulty]));
-                newSquares[move] = 'O'
+                newSquares[Math.floor(Math.random() * 9)] = 'O'
             }
             return setSquares(newSquares);
         }
