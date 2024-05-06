@@ -13,7 +13,7 @@ function choose(probability) {
     return random < probability ? true : false;
 }
 
-function minmax(currentState, symbol, isMaximizing, depth) {
+function alpha_beta_pruning(currentState, symbol, isMaximizing, depth, alpha, beta) {
     let bestMove = null
     let winner = calculateWinner(currentState)
     if (winner) return [winner === 'X' ? -1 * (9-depth) : 1 * (9-depth), bestMove]
@@ -23,17 +23,20 @@ function minmax(currentState, symbol, isMaximizing, depth) {
         if (currentState[i] === null) {
             currentState[i] = symbol;
             // eslint-disable-next-line no-unused-vars
-            let [score, _] = minmax(currentState, changeSymbol(symbol), !isMaximizing, depth+1)
+            let [score, _] = alpha_beta_pruning(currentState, changeSymbol(symbol), !isMaximizing, depth+1, alpha, beta)
             currentState[i] = null;
             if (isMaximizing && bestVal < score) {
                 bestVal = score;
                 bestMove = i;
+                alpha = Math.max(alpha, bestVal);
             }
             if (!isMaximizing && bestVal > score) {
                 bestVal = score;
                 bestMove = i;
+                beta = Math.min(beta, bestVal);
             }
         }
+        if (beta <= alpha) break;
     }
     return [bestVal, bestMove];
 }
@@ -60,8 +63,7 @@ function Board({ status, squares, setSquares, difficulty, setDifficulty, xturn, 
         setSquares(nextSquares);
 
         // eslint-disable-next-line no-unused-vars
-        let [_, move] = minmax(nextSquares, 'O', choose(probability[difficulty]), 0);
-        console.log(_)
+        let [_, move] = alpha_beta_pruning(nextSquares, 'O', choose(probability[difficulty]), 0, -Infinity, Infinity);
         nextSquares = nextSquares.slice();
         nextSquares[move] = "O";
         setSquares(nextSquares);
