@@ -2,14 +2,14 @@
 
 ## Description
 
-This repository contains a React-based Tic Tac Toe game where users can play against a robot opponent. The game offers three difficulty levels: Easy, Medium, and Hard. The AI opponent uses the alpha-beta pruning algorithm to make intelligent moves, providing a challenging experience for players.
+This repository contains a React-based Tic Tac Toe game where users can play against a robot opponent. The game offers three difficulty levels: Easy, Medium, and Hard. The AI opponent uses the Minimax algorithm to make intelligent moves, providing a challenging experience for players.
 
 You can play the game live [here](https://ns-anonymous.github.io/tic-tac-toe/).
 
 ## Features
 
 - **Three Difficulty Levels:** Choose between Easy, Medium, and Hard levels to match your skill.
-- **AI Opponent:** Play against a computer opponent that uses alpha-beta pruning for optimal moves.
+- **AI Opponent:** Play against a computer opponent that uses Minimax pruning for optimal moves.
 - **Interactive UI:** Simple and intuitive user interface built with React.
 - **Real-time Feedback:** Displays the game status (e.g., winner or tie) as you play.
 
@@ -57,9 +57,13 @@ To run this project locally, follow these steps:
 
 - **changeSymbol(symbol):** Switches between 'X' and 'O'.
 - **choose(probability):** Determines whether the AI makes an optimal move based on the difficulty level.
-- **alpha_beta_pruning(currentState, symbol, isMaximizing, depth, alpha, beta):** Implements the alpha-beta pruning algorithm to find the best move for the AI.
+- **minimax(currentState, symbol, isMaximizing, depth):** Implements the Minimax algorithm to find the best move for the AI.
 - **calculateWinner(squares):** Checks if there is a winner.
 - **isFull(squares):** Checks if the board is full.
+
+## Note
+
+This version of the game implements the Minimax algorithm. If you want to explore the Alpha-Beta Pruning implementation, please check the [alpha-beta-pruning branch](https://github.com/Ns-AnoNymouS/tic-tac-toe/tree/alpha-beta-pruning).
 
 ## Contributing
 
