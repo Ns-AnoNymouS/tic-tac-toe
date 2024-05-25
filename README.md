@@ -20,7 +20,7 @@ To run this project locally, follow these steps:
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/Ns-AnoNymouS/tic-tac-toe.git
+   git clone -b alpha-beta-pruning https://github.com/Ns-AnoNymouS/tic-tac-toe.git
    cd tic-tac-toe
    ```
 
